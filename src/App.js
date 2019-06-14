@@ -1,12 +1,13 @@
 import React from 'react';
-import C3Chart from 'react-c3js';
+import Chart from 'react-c3js';
+import './App.css';
 import 'c3/c3.css';
  
-import chartParams from './charts/tam'
+import { chartData, timeSeriesConfig } from './charts/tam'
 
 function App() {
   return (
-    <C3Chart data={ chartParams } />
+    <Chart data={ chartData } axis={ timeSeriesConfig } />
   );
 }
 

@@ -1,4 +1,4 @@
-const FIELDS = ['total', 'bot_only', 'bot_agent', 'agent_only'];
+const FIELDS = ['date', 'total', 'bot_only', 'bot_agent', 'agent_only'];
 
 const transformData = (rawData) => {
   // Get the number of days
