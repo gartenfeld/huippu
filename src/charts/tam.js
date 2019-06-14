@@ -10,6 +10,18 @@ const labels = {
   'agent_only': 'Agent Only'
 };
 
+const onClickDot = (d, el) => {
+  if (d.id === 'total') {
+    return;
+  }
+  let instruction = d.note ? 'Comments:' : 'Please add comments.'
+  let note = window.prompt(instruction, d.note || '');
+  if (note === null) {
+    return;
+  }
+  d.note = note;
+};
+
 const chartData = {
   x: 'date',
   columns: columns,
@@ -22,17 +34,23 @@ const chartData = {
   groups: [
     ['bot_only', 'bot_agent', 'agent_only']
   ],
-  names: labels
+  names: labels,
+  onclick: onClickDot
 };
 
 const timeSeriesConfig = {
   x: {
     type: 'timeseries',
     tick: {
-      // culling: false,
       format: '%Y-%m-%d'
     }
   }
 }
 
-export { chartData, timeSeriesConfig };
+const pointConfig = {
+  r: d => {
+    return d.note ? 8 : 2.5;
+  }
+};
+
+export { chartData, timeSeriesConfig, pointConfig };
