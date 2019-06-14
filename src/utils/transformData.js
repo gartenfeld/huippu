@@ -1,6 +1,9 @@
 const FIELDS = ['date', 'total', 'bot_only', 'bot_agent', 'agent_only'];
 
 const transformData = (rawData) => {
+  // return Object.keys(rawData[0]).map(columnKey => {
+  //   return [columnKey].concat(rawData.map(d => d[columnKey]));
+  // })
   // Get the number of days
   const size = rawData.length;
   const columns = {};
